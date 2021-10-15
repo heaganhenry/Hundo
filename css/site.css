@@ -5,6 +5,19 @@
     --white-color: #e7e7e7;
 }
 
+.logoFont {
+    font-family: 'Righteous', cursive;
+}
+
+.odd {
+    font-weight: 100;
+}
+
+.even {
+    font-weight: bold;
+    font-size: large;
+}
+
 body {
     color: var(--dark-color);
 }
@@ -29,42 +42,52 @@ h6 {
 .h5,
 .h6 {
     display: block;
-    font-weight: normal;
-    font-family: Helvetica, Arial, sans-serif;
-    line-height: 1.1;
-    margin-bottom: 0.5rem;
-    margin-top: 0;
+    font-weight: bold;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
     color: var(--primary-color);
 }
 
 h1,
 .h1 {
-    font-size: 2.5rem;
+    font-size: 2.00em;
+    margin-block-start: .67em;
+    margin-block-end: .67em;
 }
 
 h2,
 .h2 {
-    font-size: 2rem;
+    font-size: 1.50em;
+    margin-block-start: .83em;
+    margin-block-end: .83em;
 }
 
 h3,
 .h3 {
-    font-size: 1.75rem;
+    font-size: 1.17em;
+    margin-block-start: .1em;
+    margin-block-end: .1em;
 }
 
 h4,
 .h4 {
-    font-size: 1.5rem;
+    font-size: 1.00em;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
 }
 
 h5,
 .h5 {
-    font-size: 1.25rem;
+    font-size: 0.83em;
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
 }
 
 h6,
 .h6 {
-    font-size: 1rem;
+    font-size: 0.67em;
+    margin-block-start: 2.33em;
+    margin-block-end: 2.33em;
 }
 
 .bsicon {

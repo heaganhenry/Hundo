@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 	<head>
-		<title>App Name: A Coding Project by Heagan Henry</title>
+		<title>Hundo: A Coding Project by Heagan Henry</title>
 		<!-- Required meta tags -->
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -14,6 +14,11 @@
 			crossorigin="anonymous"
 		/>
 
+		<!-- Google Fonts for Righteous -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet" />
+
 		<link rel="stylesheet" href="css/site.css" />
 		<link rel="stylesheet" href="css/prism.css" />
 		<link rel="icon" href="img/favicon.ico?" />
@@ -23,7 +28,7 @@
 		<!-- Nav Section -->
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#"
+				<a class="navbar-brand logoFont" href="#"
 					><img
 						src="img/HFS_Logo.png"
 						alt="Heagan Logo"
@@ -31,7 +36,7 @@
 						width="30"
 						height="30"
 					/>
-					APP NAME</a
+					HUNDO</a
 				>
 				<button
 					class="navbar-toggler"
@@ -68,22 +73,88 @@
 		<!-- Main Section -->
 		<main class="flex-shrink-0">
 			<div class="container py-5 px-5 mt-5">
-				<span class="h2 border-bottom border-1 border-dark">The Code for APP NAME.</span>
+				<span class="h2 border-bottom border-1 border-dark">The Code for HUNDO</span>
 				<div class="row row-cols-1 row-cols-lg-2">
 					<div class="col-lg-8">
 						<pre class="line-numbers">
                             <code class="language-javascript">
-                                // Call Hello World
-                                function helloWorld() {
-                                    alert("Hello World");
-                                }
-                            </code>
+								// start or controller function
+								// get values from the page
+								function getValues() {
+									// get values from the page by id
+									let startValue = document.getElementById("startValue").value;
+									let endValue = document.getElementById("endValue").value;
+								
+									// parse into integers
+									startValue = parseInt(startValue);
+									endValue = parseInt(endValue);
+									
+									// input validation
+									if (Number.isInteger(startValue) && Number.isInteger(endValue)){
+										let numbers = generateNumbers(startValue, endValue);
+										displayNumbers(numbers);
+									}
+									else
+										alert("You must enter integers");
+								}
+								
+								// logic function
+								// generate numbers from startValue to endValue
+								function generateNumbers(startValue, endValue) {
+									let numbers = [];
+									for (let i = startValue; i <= endValue; i++){
+										numbers.push(i);
+									}
+								
+									return numbers;
+								}
+								
+								// display or view function
+								// display numbers and mark even numbers in bold
+								function displayNumbers(numbers) {
+									let templateRows = "";
+								
+									for (let i = 0; i < numbers.length; i++) {
+										let className = 'even';
+										let number = numbers[i];
+								
+										if(number % 2 == 0)
+											className = 'even';
+										else
+											className = 'odd';
+								
+										// this line doesn't render correctly with Prism, see the source
+										templateRows += `<tr><td class="${className}">${number}</td></tr>`;
+									}
+								
+									document.getElementById("results").innerHTML = templateRows;
+								}
+							</code>
                         </pre>
 					</div>
 					<div class="col-lg-4">
-						<p>The Code is structured in one function.</p>
-						<span class="h4" style="font-size: large">Hello World</span>
-						<p>helloWorld is a function that displays an alert with a message of "Hello World".</p>
+						<p style="font-size: large">The Code is structured in three functions.</p>
+						<span class="h4" style="font-size: large">getValues</span>
+						<p>
+							getValues is a function that retrieves the start and end values entered by the user in the
+							fields of the app's web page. This is achieved by using the native getElementById function
+							and referencing the unique id of the input fields used in the web page. These values are
+							then validated to ensure no invalid data (i.e aren't numbers) is used in the following
+							functions.
+						</p>
+						<span class="h4" style="font-size: large">generateNumbers</span>
+						<p>
+							generateNumbers is a function that takes the start and end values that have been retrieved
+							and validated by getValues and creates an array of numbers which ranges from start to end.
+							This is achieved by using a for loop which inserts each number from the range into an array.
+						</p>
+						<span class="h4" style="font-size: large">displayNumbers</span>
+						<p>
+							displayNumbers is a function that takes the array created by generateNumbers and inserts
+							them into the web page as a table with even numbers displayed in bold. This is achieved by
+							using a for loop to look at each number in the array, then using if/else logic to insert the
+							appropriate html code into the web page which is then finally styled using css.
+						</p>
 					</div>
 				</div>
 			</div>
