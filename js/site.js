@@ -38,7 +38,7 @@ function displayNumbers(numbers) {
         let className = 'even';
         let number = numbers[i];
 
-        if(number % 2 == 0)
+        if (number % 2 == 0)
             className = 'even';
         else
             className = 'odd';
